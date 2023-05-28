@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ProfileSettings"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#143441">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="#143441">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="Öğrenci Profili"
+        android:textColor="#C4B69A"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/default_profile_foreground"
+        android:scaleType="centerCrop"
+        android:clickable="true"
+        android:focusable="true" />
+
+        <EditText
+            android:id="@+id/profileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Adınız Soyadiniz"
+            android:background="#0D1F21"
+            android:padding="16dp"
+            android:textColor="#C4B69A"
+            android:textColorHint="#C4B69A" />
+
+        <EditText
+            android:id="@+id/profileEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="E-posta"
+            android:background="#0D1F21"
+            android:padding="16dp"
+            android:textColor="#C4B69A"
+            android:textColorHint="#C4B69A" />
+
+    <EditText
+        android:id="@+id/departmentEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#0D1F21"
+        android:hint="Bölüm"
+        android:padding="15dp"
+        android:textColor="#C4B69A"
+        android:textColorHint="#C4B69A" />
+
+    <EditText
+        android:id="@+id/classEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#0D1F21"
+        android:hint="Sınıf"
+        android:padding="15dp"
+        android:textColor="#C4B69A"
+        android:textColorHint="#C4B69A" />
+
+    <EditText
+        android:id="@+id/distanceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#0D1F21"
+        android:hint="Kampüse Uzaklık"
+        android:padding="15dp"
+        android:textColor="#C4B69A"
+        android:textColorHint="#C4B69A" />
+
+    <EditText
+        android:id="@+id/durationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#0D1F21"
+        android:hint="Kalacağı Süre (Ay bazinda)"
+        android:padding="15dp"
+        android:textColor="#C4B69A"
+        android:textColorHint="#C4B69A" />
+
+    <Spinner
+        android:id="@+id/statusSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#0D1F21"
+        android:padding="15dp"
+        android:popupBackground="#0D1F21"
+        android:textColor="#C4B69A"
+        android:textColorHint="#C4B69A" />
+
+    <EditText
+        android:id="@+id/contactEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#0D1F21"
+        android:hint="Telefon Numarasi"
+
+        android:padding="15dp"
+        android:textColor="#C4B69A"
+        android:textColorHint="#C4B69A" />
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="16dp"
+        android:text="Kaydet"
+        android:textColor="#0D1F21"
+        android:textSize="18sp"
+        android:background="#C4B69A" />
+    </LinearLayout>
+
+</ScrollView>
