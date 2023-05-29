@@ -7,6 +7,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -35,14 +37,19 @@ public class Profile extends AppCompatActivity {
     private TextView profileDuration;
     private TextView profileStatus;
     private TextView profileContact;
+    private Button requestButton;
+    ImageView back;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // XML öğelerini Java sınıfına bağla
+        back = findViewById(R.id.backButton);
         profilePhoto = findViewById(R.id.profile_photo);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        requestButton = findViewById(R.id.requestButton);
         mail = findViewById(R.id.emailIcon);
         whatsapp = findViewById(R.id.whatsapp);
         profileName = findViewById(R.id.profile_name);
@@ -53,10 +60,10 @@ public class Profile extends AppCompatActivity {
         profileStatus = findViewById(R.id.profile_status);
         profileContact = findViewById(R.id.profile_contact);
 
-        // Intent'ten User nesnesini al
+
         User user = (User) getIntent().getSerializableExtra("user");
 
-        // Kullanıcının profil bilgilerini göster
+
         profileName.setText(user.getName());
         profileDepartment.setText(user.getDepartment());
         profileClass.setText(user.getStudentClass());
@@ -82,6 +89,13 @@ public class Profile extends AppCompatActivity {
 //            }
 //        });
 
+
+back.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        onBackPressed();
+    }
+});
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

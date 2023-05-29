@@ -31,7 +31,7 @@ public class Register extends AppCompatActivity {
 
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
+
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null && currentUser.isEmailVerified()) {
             Toast.makeText(getApplicationContext(),"Zaten giris yapilmisolacak ", Toast.LENGTH_SHORT).show();
@@ -57,23 +57,19 @@ public class Register extends AppCompatActivity {
         goLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Login sayfasına geçiş yap
 
                 Intent intent = new Intent(Register.this, Login.class);
                 startActivity(intent);
-                finish(); // Register sayfasını kapat
+                finish();
             }
         });
-
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Kayıt işlemlerini gerçekleştir
 
                 progressBar.setVisibility(View.VISIBLE);
                 if(registerPassword.getText().toString().isEmpty()||registerPasswordConfirm.getText().toString().isEmpty()||registerEmail.getText().toString().isEmpty()){
                     Toast.makeText(getApplicationContext(),"Lutfen tum bosluklari doldurun!",Toast.LENGTH_SHORT).show();
-
                 }
                 else{
                     if(registerPassword.getText().toString().equals(registerPasswordConfirm.getText().toString())){
@@ -82,10 +78,7 @@ public class Register extends AppCompatActivity {
                     else{
                         Toast.makeText(getApplicationContext(),"Sifreler Uyusmuyor",Toast.LENGTH_SHORT).show();
                     }
-
                 }
-
-
                 progressBar.setVisibility(View.GONE);
             }
         });
@@ -124,7 +117,6 @@ public class Register extends AppCompatActivity {
                                                                     Intent intent = new Intent(Register.this, Login.class);
                                                                     startActivity(intent);
                                                                     finish();
-                                                                    // Redirect to login after successful registration and verification
 
                                                                 } else {
                                                                     Toast.makeText(getApplicationContext(),
@@ -162,7 +154,6 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Yildiz mailiyle giris yapildi, verification maili gonderilemeyecek",Toast.LENGTH_SHORT).show();
             return true;
         }else{
-
             return  false;
         }
     }

@@ -87,17 +87,14 @@ public class ProfileSettings extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
-        Intent intent = getIntent();
-        user = intent.getParcelableExtra("user");
-        //bir tek loginden gelirken user null olabilir
+        User user = (User) getIntent().getSerializableExtra("user");
+
 
         if (user != null) {
-            getDbUser(false);
+            setUser();
         }
         else{
-
             getDbUser(true);
-
         }
 
 
@@ -148,6 +145,24 @@ public class ProfileSettings extends AppCompatActivity {
         });
 
     }
+    private void setUser(){
+        profileName.setText(user.getName());
+        departmentEditText.setText(user.getDepartment());
+        classEditText.setText(user.getStudentClass());
+        distanceEditText.setText(user.getDistance());
+        durationEditText.setText(user.getDuration());
+        contactEditText.setText(user.getContact());
+
+        // Set the status Spinner selection
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(ProfileSettings.this, R.array.status_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        statusSpinner.setAdapter(adapter);
+        if (user.getStatus() != null) {
+            int spinnerPosition = adapter.getPosition(user.getStatus());
+            statusSpinner.setSelection(spinnerPosition);
+        }
+
+    }
     private void getDbUser(boolean isfromLogin){
         try {
             db.collection("User").document(currentUser.getUid()).get()
@@ -159,7 +174,7 @@ public class ProfileSettings extends AppCompatActivity {
                                 if (user != null ) {
                                     // Set the retrieved user information to the corresponding EditTexts
                                     if(user.isUserUpdated()&& isfromLogin){
-                                        Intent intent = new Intent(getApplicationContext(), Profile.class);
+                                        Intent intent = new Intent(getApplicationContext(), Home.class);
                                         intent.putExtra("user", user);
                                         startActivity(intent);
 

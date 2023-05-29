@@ -6,7 +6,7 @@ import android.widget.Spinner;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private String email,UID,department,studentClass,distance,duration,status,contact,photoUrl,name;
+    private String email,UID,department,studentClass,distance,duration,status,contact,photoUrl,name,fcmToken;
     private boolean userUpdated;
 
 
@@ -72,4 +72,11 @@ public class User implements Serializable {
     }
 
 
+    public String getFcmToken() {
+        return fcmToken;
+    }
+
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
+    }
 }
